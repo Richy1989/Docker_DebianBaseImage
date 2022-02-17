@@ -1,0 +1,94 @@
+################################################################################
+# Magna Presstec - Docker Compose 
+################################################################################
+version: "3.7"
+
+services:
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: magnaportainer
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Amsterdam
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 8200:9000
+      - 8210:8000
+    networks:
+      backend-network:
+        ipv4_address: 10.5.1.20
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer-data:/data
+
+  node-red:
+    container_name: magnanodered
+    image: nodered/node-red:latest
+    restart: always
+    environment:
+      - TZ=Europe/Amsterdam
+    ports:
+      - 8090:1880
+    networks:
+      backend-network:
+        ipv4_address: 10.5.1.5
+    volumes:
+      - node-red-data:/data
+
+  debian:
+    container_name: magnadebian
+    image: magnadebian
+    build:
+      args:
+         APP_USER: richy
+      context: ./
+      dockerfile: ./Dockerfile
+#    stdin_open: true # docker run -i
+#    tty: true        # docker run -t
+    restart: always
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    environment:
+      - TZ=Europe/Amsterdam
+    ports:
+      - 8100:80
+      - 8110:443
+      - 8111:22 #ToDo: <------ add when ssh access is needed / DO NOT USE IN PRODUCTION!
+    networks:
+      backend-network:
+        ipv4_address: 10.5.1.10
+    volumes:
+      - debian-data:/data
+
+  hiveMQ:
+    container_name: magnahivemq
+    image: hivemq/hivemq4
+    restart: always
+    environment:
+      - TZ=Europe/Amsterdam
+    ports:
+      - 8095:1883
+      - 8096:8080
+    networks:
+      backend-network:
+        ipv4_address: 10.5.1.15
+    volumes:
+      - mqtt-data:/data
+
+volumes:
+    node-red-data:
+    debian-data:
+    mqtt-data:
+    portainer-data:
+
+networks:
+    backend-network:
+        driver: bridge
+        ipam:
+          driver: default
+          config:
+            - subnet: 10.5.1.0/24
