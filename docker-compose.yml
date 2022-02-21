@@ -43,7 +43,7 @@ services:
     image: magnadebian
     build:
       args:
-         APP_USER: richy
+         APP_USER: magna
       context: ./
       dockerfile: ./Dockerfile
 #    stdin_open: true # docker run -i

@@ -118,7 +118,7 @@ $compose_software up -d --build || error_occurred $compose_software
 echo -e "$LightBlue""$compose_software finished ...""$NC";
 
 echo -e "$Green""Everything went fine!""$NC";
-echo -e "$Green""Magna local installation complete. Installation Path: $homeFolder""$NC";
+echo -e "$Green""Magna local installation complete. Installation Path: $homeFolder$magna_local_folder""$NC";
 
 #If IP is set --> reboot
 if [ $setIp -eq 1 ]; then
