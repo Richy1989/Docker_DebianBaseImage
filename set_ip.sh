@@ -1,4 +1,9 @@
 #!/bin/bash
+################################################################################
+# Magna Presstec - Set IP Library - Example - Not for production
+# Author: Richard Leopold
+# Date: 15.02.2022
+################################################################################
 
 #Define colors for output
 LightBlue='\033[1;34m'

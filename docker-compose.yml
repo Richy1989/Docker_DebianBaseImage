@@ -1,5 +1,7 @@
 ################################################################################
-# Magna Presstec - Docker Compose 
+# Magna Presstec - Docker Compose File - Example - Not for production
+# Author: Richard Leopold
+# Date: 15.02.2022
 ################################################################################
 version: "3.7"
 

@@ -1,6 +1,8 @@
 #!/bin/bash
 ################################################################################
-# Magna Presstec - Installation Script
+# Magna Presstec - Installation File - Example - Not for production
+# Author: Richard Leopold
+# Date: 15.02.2022
 ################################################################################
 
 #Function to check if a command exists or not
