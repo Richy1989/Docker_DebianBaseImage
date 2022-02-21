@@ -1,4 +1,4 @@
-# Docker_DebianBaseImage for PLCnext
+# Docker NodeRed - MQTT - Debian Architecture for PLCnext EPC 1502 or 1522
 ## Install on Target
 
 For installation you need to be root user:
