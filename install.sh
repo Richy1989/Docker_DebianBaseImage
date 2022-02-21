@@ -105,8 +105,9 @@ cp -f "$executionDir""/"$keyFile $keyFile #<---------- DO NOT USE IN PRODUCTION
 echo -e "$LightBlue""Stopping running instances ...$actualFolder""$NC";
 $compose_software down;
 
-#Delete all existing container and images #!Delete if not necessary 
+#Remove all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes. #!Delete if not necessary 
 $container_software system prune --all --force
+
 #Sleep 3 seconds to let docker settle down
 echo -e "$LightBlue""Wait 3 seconds for docker to settle down after prune ...""$NC";
 sleep 3;
@@ -117,6 +118,7 @@ $compose_software up -d --build || error_occurred $compose_software
 echo -e "$LightBlue""$compose_software finished ...""$NC";
 
 echo -e "$Green""Everything went fine!""$NC";
+echo -e "$Green""Magna local installation complete. Installation Path: $homeFolder""$NC";
 
 #If IP is set --> reboot
 if [ $setIp -eq 1 ]; then
