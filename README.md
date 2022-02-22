@@ -22,7 +22,7 @@ For installation:
 git clone https://github.com/Richy1989/PLCnext_DFnow_Example.git
 
 # Execute Setup.sh in archive
-cd Docker_DebianBaseImage
+cd PLCnext_DFnow_Example
 chmod +x install.sh
 #If you only want to install the containers execute:
 ./install.sh
