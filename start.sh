@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# Magna Presstec - Docker Container Startup File - Example - Not for production
+# Docker Container Startup File - Example - Not for production
 # Author: Richard Leopold
 # Date: 15.02.2022
 ################################################################################

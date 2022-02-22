@@ -1,5 +1,5 @@
 ################################################################################
-# Magna Presstec - Dockerfile - Example - Not for production
+# Dockerfile - Example - Not for production
 # Author: Richard Leopold
 # Date: 15.02.2022
 ################################################################################

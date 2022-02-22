@@ -55,7 +55,7 @@ if ! command_exists $container_software || ! command_exists $compose_software ; 
 	echo -e "$LightBlue""Starting installation of: $container_software and $compose_software ...""$NC";
 
 	#Remove download if already existing
-	rm -f Docker_GettingStarted >/dev/null 2>&1
+	rm -f Docker_GettingStarted -R >/dev/null 2>&1
 	#Download the project
 	git clone https://github.com/Richy1989/Docker_GettingStarted;
 	#Execute setup.sh
