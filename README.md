@@ -29,3 +29,15 @@ chmod +x install.sh
 #If you also want to set the IP Address of the interfaces execute: 
 ./install.sh "IP X2:ETH" "Gateway X2:ETH" "Subnet Mask X2:ETH" "IP X3:ETH" "Gateway X3:ETH" "Subnet Mask X3:ETH"
 ```
+
+
+Useful Commands: 
+
+```sh
+# Stop running containers
+docker-compose down
+# Delete all unused resources from Docker: 
+docker system prune --all --force
+# Reset PLCnext / Delete all user data (Make sure all Docker container and images are removed first)
+recover-plcnext 1
+```
