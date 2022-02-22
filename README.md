@@ -19,7 +19,7 @@ For installation:
 
 ```sh
 # Download the Project
-git clone https://github.com/Richy1989/Docker_DebianBaseImage
+git clone https://github.com/Richy1989/PLCnext_DFnow_Example.git
 
 # Execute Setup.sh in archive
 cd Docker_DebianBaseImage

@@ -57,7 +57,7 @@ if ! command_exists $container_software || ! command_exists $compose_software ; 
 	#Remove download if already existing
 	rm -f Docker_GettingStarted -R >/dev/null 2>&1
 	#Download the project
-	git clone https://github.com/PLCnext/Docker_GettingStarted.git;
+	git clone https://github.com/Richy1989/PLCnext_DFnow_Example.git;
 	#Execute setup.sh
 	cd Docker_GettingStarted || exit;
 	chmod +x setup.sh;
