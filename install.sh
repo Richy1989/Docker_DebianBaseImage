@@ -99,11 +99,7 @@ echo -e "$LightBlue""Copy needed files to installation folder ...""$NC";
 cp -f "$executionDir""/"$dockerfileName $dockerfileName
 cp -f "$executionDir""/"$dockerComposeFileName $dockerComposeFileName
 cp -f "$executionDir""/"$startupFile $startupFile
-cp -f "$executionDir""/"$keyFile $keyFile #<---------- DO NOT USE IN PRODUCTION
-
-#Execute docker-compose once to be sure it is up do date - docker will auto update it
-#echo -e ${LightBlue}$compose_software" is executed once before start ..."${NC};
-#$compose_software &> /dev/null;
+cp -f "$executionDir""/"$keyFile $keyFile #!<---------- DO NOT USE IN PRODUCTION
 
 #Stop containers and remove images
 echo -e "$LightBlue""Stopping running instances ...$actualFolder""$NC";
