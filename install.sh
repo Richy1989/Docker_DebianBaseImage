@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# Magna Presstec - Installation File - Example - Not for production
+# Installation File - Example - Not for production
 # Author: Richard Leopold
 # Date: 15.02.2022
 ################################################################################
@@ -69,7 +69,7 @@ echo -e "$Green""$container_software and $compose_software found ...""$NC";
 echo -e "$LightBlue""Starting installation of the containers ...""$NC";
 
 #Set variables
-magna_local_folder="magna_local";
+local_folder="insallation_local";
 homeFolder="/opt/plcnext/";
 dockerfileName="Dockerfile";
 dockerComposeFileName="docker-compose.yml";
@@ -84,12 +84,12 @@ actualFolder=$(pwd);
 echo -e "$LightBlue""Moved to directory: $actualFolder""$NC";
 
 #Create local installation folder
-echo -e "$LightBlue""Create installation folder: $magna_local_folder""$NC";
-mkdir -p $magna_local_folder;
+echo -e "$LightBlue""Create installation folder: $local_folder""$NC";
+mkdir -p $local_folder;
 #Change permission of local folder
-chmod 777 $magna_local_folder;
+chmod 777 $local_folder;
 #Move into local installation folder
-cd $magna_local_folder || echo 'installation folder not found';
+cd $local_folder || echo 'installation folder not found';
 
 actualFolder=$(pwd);
 echo -e "$LightBlue""Moved to directory: $actualFolder""$NC";
@@ -112,13 +112,13 @@ $container_software system prune --all --force
 echo -e "$LightBlue""Wait 3 seconds for docker to settle down after prune ...""$NC";
 sleep 3;
 
-#Start docker-compose process - note: This always rebuilds the magnadebian image (remove --build otherwise)
+#Start docker-compose process - note: This always rebuilds the debian image (remove --build otherwise)
 echo -e "$LightBlue""$compose_software is starting ...""$NC";
 $compose_software up -d --build || error_occurred $compose_software
 echo -e "$LightBlue""$compose_software finished ...""$NC";
 
 echo -e "$Green""Everything went fine!""$NC";
-echo -e "$Green""Magna local installation complete. Installation Path: $homeFolder$magna_local_folder""$NC";
+echo -e "$Green""Local installation complete. Installation Path: $homeFolder$local_folder""$NC";
 
 #If IP is set --> reboot
 if [ $setIp -eq 1 ]; then

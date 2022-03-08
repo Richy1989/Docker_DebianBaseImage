@@ -9,7 +9,7 @@ services:
 
   portainer:
     image: portainer/portainer-ce:latest
-    container_name: magnaportainer
+    container_name: portainer
     restart: unless-stopped
     environment:
       - TZ=Europe/Amsterdam
@@ -27,7 +27,7 @@ services:
       - portainer-data:/data
 
   node-red:
-    container_name: magnanodered
+    container_name: nodered
     image: nodered/node-red:latest
     restart: always
     environment:
@@ -41,8 +41,8 @@ services:
       - node-red-data:/data
 
   debian:
-    container_name: magnadebian
-    image: magnadebian
+    container_name: debian
+    image: dfNowdebian
     build:
       args:
          APP_USER: appuser
@@ -67,7 +67,7 @@ services:
       - debian-data:/data
 
   hiveMQ:
-    container_name: magnahivemq
+    container_name: hivemq
     image: hivemq/hivemq4
     restart: always
     environment:
